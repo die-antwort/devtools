@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DATADIR=$(cd $(dirname $0) && pwd -P)/data-5.7
+
+mkdir -p $DATADIR
+
+docker run -d --name mysql57 -v $DATADIR:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7
