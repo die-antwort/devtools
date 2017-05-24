@@ -12,6 +12,6 @@ elif [[ $(docker ps -aq --filter name=$NAME --filter status=exited) != "" ]]; th
   docker start $NAME
 else
   echo "Creating and starting container $NAME ..."
-  docker run -d --name postgres94 -v $DATADIR:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_PASSWORD=root postgres:9.4
+  docker run -d --name postgres94 -v $DATADIR:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_PASSWORD= -e POSTGRES_USER=$USER postgres:9.4
 fi
-echo "Postgres running at postgres://postgres:root@localhost"
+echo "Postgres running at postgres://localhost"
