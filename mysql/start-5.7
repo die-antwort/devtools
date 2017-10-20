@@ -12,5 +12,5 @@ elif [[ $(docker ps -aq --filter name=$NAME --filter status=exited) != "" ]]; th
   docker start $NAME
 else
   echo "Creating and starting container $NAME ..."
-  docker run -d --name $NAME -v $DATADIR:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7
+  docker run -d --name $NAME -v $DATADIR:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network devtools mysql:5.7
 fi
